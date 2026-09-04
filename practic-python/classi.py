@@ -653,27 +653,17 @@ class Product():
 
     def all_price(self):
         
-        for product in [product1, product2, product3]:
-            if product.price == max(product1.price , product2.price , product3.price):
+        for product in products:
+            if product.price == max(all_prices):
                 print(f"самый дорогой продукт - {product.name} его цена - {product.price} ")
 
     def find_high_product(self):
         self.high_product = product1
-        for product in [product1 , product2 , product3]:
+        for product in products:
             if product.price > self.high_product.price:
                 self.high_product = product
               
-            
-            
-
-
-
-            
-                
-            
-                
-                
-
+        
 
 product1 = Product("яблоки" , 100 , 50)
 product1.name_product()
@@ -694,13 +684,19 @@ product3.name_product()
 product3.price_product()
 product3.quantity_product()
 
+product4 = Product("колбаса" , 500 , 20)
+product4.name_product()
+product4.price_product()
+product4.quantity_product()
 
 
-all_name = (product1.name , product2.name, product3.name)
-all_prices = (product1.price , product2.price , product3.price)
+all_name = (product1.name , product2.name, product3.name , product4.name)
+all_prices = (product1.price , product2.price , product3.price , product4.price)
+products = [product1 , product2 , product3 , product4]
+
 
 print(f"{product1.find_high_product()}")
-print(f"{product1.high_product.name_product()}")
+product1.high_product.name_product()
 product1.high_product.all_price()
 print(f"вот все товары - {all_name}")
 
