@@ -636,88 +636,122 @@
 # print(f"количество попыток {popitki}")
 
 
-class Product():
-    def __init__(self, name, price, quantity):
-        self.name = name
-        self.price = price
-        self.quantity = quantity
+# class Product():
+#     def __init__(self, name, price, quantity):
+#         self.name = name
+#         self.price = price
+#         self.quantity = quantity
 
-    def name_product(self):
-        print(f"\nпродукт - {self.name}")
+#     def name_product(self):
+#         print(f"\nпродукт - {self.name}")
 
-    def price_product(self):
-        print(f"цена продукта - {self.price}")
+#     def price_product(self):
+#         print(f"цена продукта - {self.price}")
 
-    def quantity_product(self):
-        print(f"количество продуктов - {self.quantity}")
+#     def quantity_product(self):
+#         print(f"количество продуктов - {self.quantity}")
 
-    def all_price(self):
+#     def all_price(self):
         
-        for product in products:
-            if product.price == max(all_prices):
-                print(f"самый дорогой продукт - {product.name} его цена - {product.price} ")
+#         for product in products:
+#             if product.price == max(all_prices):
+#                 print(f"самый дорогой продукт - {product.name} его цена - {product.price} ")
 
-            if product.price == min(all_prices):
-                print(f"самый дешевый продукт - {product.name} , его цена - {product.price}")
+#             if product.price == min(all_prices):
+#                 print(f"самый дешевый продукт - {product.name} , его цена - {product.price}")
 
 
-    def find_high_product(self):
-        self.high_product = product1
-        for product in products:
-            if product.price > self.high_product.price:
-                self.high_product = product
+#     def find_high_product(self):
+#         self.high_product = product1
+#         for product in products:
+#             if product.price > self.high_product.price:
+#                 self.high_product = product
               
-    def find_low_product(self):
-        self.low_product = product1
-        for product in products:
-            if product.price < self.low_product.price:
-                self.low_product = product
+#     def find_low_product(self):
+#         self.low_product = product1
+#         for product in products:
+#             if product.price < self.low_product.price:
+#                 self.low_product = product
 
 
-    def product_sklad(self):
-        for product in products:
-            print(f"вот общая стоимость товара на складе - {product.price * product.quantity} , товар {product.name}")
+#     def product_sklad(self):
+#         for product in products:
+#             print(f"вот общая стоимость товара на складе - {product.price * product.quantity} , товар {product.name}")
 
-product1 = Product("яблоки" , 100 , 50)
-product1.name_product()
-product1.price_product()
-product1.quantity_product()
-
-
-
-product2 = Product("бананчики" , 200 ,30)
-product2.name_product()
-product2.price_product()
-product2.quantity_product()
+# product1 = Product("яблоки" , 100 , 50)
+# product1.name_product()
+# product1.price_product()
+# product1.quantity_product()
 
 
 
-product3 = Product("сыр" , 450 ,58)
-product3.name_product()
-product3.price_product()
-product3.quantity_product()
-
-product4 = Product("колбаса" , 500 , 20)
-product4.name_product()
-product4.price_product()
-product4.quantity_product()
-
-
-all_name = (product1.name , product2.name, product3.name , product4.name)
-all_prices = (product1.price , product2.price , product3.price , product4.price)
-products = [product1 , product2 , product3 , product4]
-
-
-print(f"{product1.find_high_product()}")
-product1.high_product.name_product()
-product1.high_product.all_price()
-product1.find_low_product()
-product1.product_sklad()
-print(f"вот все товары - {all_name}")
+# product2 = Product("бананчики" , 200 ,30)
+# product2.name_product()
+# product2.price_product()
+# product2.quantity_product()
 
 
 
-# if all_prices < max(all_prices):
-        #     print(f"самый дорогой продукт - {self.name} , его цена - {self.high_price}")
-        # if all_prices > max(all_prices):
-        #     print(f"самый дорогой продукт - {self.name} , его цена - {self.price}")
+# product3 = Product("сыр" , 450 ,58)
+# product3.name_product()
+# product3.price_product()
+# product3.quantity_product()
+
+# product4 = Product("колбаса" , 500 , 20)
+# product4.name_product()
+# product4.price_product()
+# product4.quantity_product()
+
+
+# all_name = (product1.name , product2.name, product3.name , product4.name)
+# all_prices = (product1.price , product2.price , product3.price , product4.price)
+# products = [product1 , product2 , product3 , product4]
+
+
+# print(f"{product1.find_high_product()}")
+# product1.high_product.name_product()
+# product1.high_product.all_price()
+# product1.find_low_product()
+# product1.product_sklad()
+# print(f"вот все товары - {all_name}")
+
+
+class BankAccount():
+    def __init__(self , bank_account , number_account , balance = 0):
+        self.bank_account = bank_account
+        self.number_account = number_account
+        self.balance = balance
+        
+
+    def deposit(self):
+        deposit_account = int(input(f"введите сумму для пополнения счета - "))
+        self.balance = self.balance + deposit_account
+        
+        
+        print(f"ваш баланс пополнен на - {deposit_account} , ваш баланс {self.balance}")
+
+    def withdraw(self):
+        withdraw_account = int(input(f"введите сумму для снятия со счета - "))
+
+        if withdraw_account > self.balance:
+            print(f"у вас недостаточно средств на счете для снятия денег")
+
+        if withdraw_account <= self.balance:
+            self.balance = self.balance - withdraw_account
+            
+            print(f"ваш баланс уменьшен на - {withdraw_account} , ваш баланс {self.balance}")
+        
+
+    def show_balance(self):
+        print(f"ваш баланс - {self.balance}")
+
+
+vivod = BankAccount("сбербанк" , 123456789 , 1000)
+
+vivod.deposit()
+vivod.withdraw()
+vivod.show_balance()
+
+
+
+    
